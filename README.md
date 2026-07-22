@@ -41,7 +41,7 @@ vacation_leave_app/
 ├── templates/
 │   └── index.html         # Form + result UI
 └── static/
-    ├── style.css           # Ledger/greenbar-paper themed styling
+    ├── style.css           # Ledger/bluebar-paper themed styling
     └── app.js               # Fetches /api/calculate and renders results
 ```
 
