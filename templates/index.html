@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vacation Leave Calculator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="ledger-sheet">
+    <div class="ledger-header">
+      <p class="eyebrow">Leave Accrual</p>
+      <h1>Vacation Leave Calculator</h1>
+      <p>Enter an employee's enlistment date to tally accrued vacation days. Years 1&ndash;10 accrue at 28 days/year; year 11 onward accrues at 35 days/year.</p>
+      
+    </div>
+
+    <div class="ledger-body">
+      <form id="leave-form">
+        <div class="field-row">
+          <div class="field">
+            <label for="start_date">Enlistment Date</label>
+            <input type="date" id="start_date" name="start_date" required max="{{ today }}">
+          </div>
+          <div class="field">
+            <label for="as_of_date">Calculate as of</label>
+            <input type="date" id="as_of_date" name="as_of_date" value="{{ today }}">
+            <span class="hint">Defaults to today</span>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field full">
+            <label for="leave_taken">Leave already taken (days)</label>
+            <input type="number" id="leave_taken" name="leave_taken" min="0" step="0.5" value="0">
+            <span class="hint">Leave does not accrue while on leave &mdash; these days pause the accrual clock and reduce the balance.</span>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="calc-btn">Calculate ledger</button>
+          <span id="error-msg" class="error-msg"></span>
+        </div>
+      </form>
+
+      <hr class="rule">
+
+      <div id="result" class="result">
+        <div class="result-top">
+          <div class="years">
+            Service on record: <strong id="years-of-service">0 yrs</strong>
+            <div id="tenure-note" class="tenure-note"></div>
+          </div>
+          <div id="tier-badge" class="tier-badge">1-10 years (28 days/year)</div>
+        </div>
+
+        <div class="ledger-rows">
+          <div class="ledger-row">
+            <span class="label">Total accrued leave</span>
+            <span id="accrued-value" class="value">0 days</span>
+          </div>
+          <div class="ledger-row">
+            <span class="label">Leave taken</span>
+            <span id="taken-value" class="value">0 days</span>
+          </div>
+          <div class="ledger-row balance">
+            <span class="label">Remaining balance</span>
+            <span id="balance-value" class="value positive">0 days</span>
+          </div>
+        </div>
+
+        <button id="breakdown-toggle" class="breakdown-toggle" type="button">Show year-by-year breakdown</button>
+        <table id="breakdown-table" class="breakdown-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Rate</th>
+              <th>Days earned</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
