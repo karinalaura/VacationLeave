@@ -1,10 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
+  --font-sans: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Manrope', 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
   --ink: #1f2b22;
   --ink-soft: #4a5a4c;
-  --paper: #f1f4ec;
-  --paper-stripe: #d9dce9;
+  --paper: #ffffff;
+  --paper-stripe: #ffffff;
   --rule: #a9bfa0;
   --rule-strong: #7c9772;
   --navy: #0a0042;
@@ -28,7 +31,7 @@ html, body {
 }
 
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-sans);
   color: var(--ink);
   background-color: var(--paper);
   background-image: repeating-linear-gradient(
@@ -63,7 +66,7 @@ body {
 }
 
 .ledger-header .eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -72,7 +75,7 @@ body {
 }
 
 .ledger-header h1 {
-  font-family: 'Fraunces', serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 32px;
   margin: 0 0 6px;
@@ -111,7 +114,7 @@ body {
 }
 
 .field label {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -119,7 +122,7 @@ body {
 }
 
 .field input {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-sans);
   font-size: 15px;
   padding: 10px 12px;
   border: 1px solid var(--rule);
@@ -147,7 +150,7 @@ body {
 }
 
 button.calc-btn {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 14.5px;
   background: var(--teal);
@@ -170,7 +173,7 @@ button.calc-btn:active {
 .error-msg {
   color: var(--rust);
   font-size: 13.5px;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   display: none;
 }
 
@@ -202,7 +205,7 @@ hr.rule {
 }
 
 .result-top .years {
-  font-family: 'Fraunces', serif;
+  font-family: var(--font-display);
   font-size: 15px;
   color: var(--ink-soft);
 }
@@ -214,7 +217,7 @@ hr.rule {
 }
 
 .tenure-note {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11.5px;
   color: var(--rust);
   margin-top: 4px;
@@ -222,7 +225,7 @@ hr.rule {
 }
 
 .tier-badge {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.04em;
   padding: 6px 12px;
@@ -248,7 +251,7 @@ hr.rule {
   justify-content: space-between;
   padding: 12px 2px;
   border-bottom: 1px solid var(--rule);
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 14px;
 }
 
@@ -275,7 +278,7 @@ hr.rule {
 
 .breakdown-toggle {
   margin-top: 18px;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.05em;
   color: var(--ink-soft);
@@ -292,7 +295,7 @@ hr.rule {
   margin-top: 14px;
   width: 100%;
   border-collapse: collapse;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-sans);
   font-size: 12.5px;
 }
 
